@@ -9,4 +9,4 @@ The R code used to produce the figures can be found in this directory. Details a
 
 ## License
 
-This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) file for detail
+This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) file for details.
