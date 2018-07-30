@@ -10,12 +10,23 @@ Some tasks were performed on the NYU HPC platform (running the
 
 ### Included analyses
 
+* [Downloading raw data](#downloading-raw-data)
 * [Read quality trimming](#read-quality-trimming)
 * [Preparation of hybrid SK1-S288C yeast genome](README.md#preparation-of-hybrid-s1-s288c-yeast-genome)
 * [List of SNPs between SK1 and S288C](README.md#list-of-snps-between-sk1-and-s288c)
 * [Read alignment, pileup and peak calling pipeline](README.md#read-alignment-pileup-and-peak-calling-pipeline)
 * [Summary of aligned read coverage per genomic position](README.md#summary-of-aligned-read-coverage-per-genomic-position)
 
+## Downloading raw data
+
+The raw sequencing data can be obtained from NCBI's Gene Expression Omnibus through GEO Series accession number [GSE114731](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114731) (private until publication). The following code uses NCBI's Entrez Direct and SRA Toolkit (see [Download Tools](https://www.ncbi.nlm.nih.gov/home/tools/)) to download all SRR files in the project and dump them to FASTQ files (will work after publication of the paper, once the submission is public).
+
+```bash
+# Use GSE114731's BioProject name in query
+esearch -db sra -query PRJNA472390 | \
+efetch --format runinfo | cut -d ',' -f 1 | \
+grep SRR | xargs fasterq-dump
+```
 
 ## Read quality trimming
 
