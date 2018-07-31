@@ -4,8 +4,7 @@
 #------------------------------------------------------------------------------#
 
 library(ggplot2)
-# library(scales)
-# ggplot2 theme
+
 ggplot2_theme <- theme_classic() +
   theme(plot.title=element_text(hjust=0.5, size=10),
         plot.subtitle=element_text(hjust=0.5, size=10),

@@ -1,5 +1,6 @@
 # This file contains paths to all data files. It is used by the other files as #
 # the centralized source of required file paths.                               #
+# File locations need to be updated in order to point to the actual files.     #
 
 library(here)
 library(stringr)

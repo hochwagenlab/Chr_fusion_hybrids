@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------#
 #                                                                              #
-#                                   Figure X                                   #
+#                                   Figure 6                                   #
 #                                                                              #
 #------------------------------------------------------------------------------#
 
@@ -21,7 +21,8 @@ source(here('helper_ggplot2_settings.R'))
 # wes_colors <- wes_palette(name = "Darjeeling1", n = 4, type = 'continuous')
 wes_colors <- wes_palette(name = "Moonrise1", n = 4, type = 'continuous')
 strain_colors <- c('black', 'lightblue', wes_colors[2:4])
-strain_colors <- c('black', 'lightblue', 'darkgoldenrod1', 'darkolivegreen3', 'indianred1')
+strain_colors <- c('black', 'lightblue', 'darkgoldenrod1',
+                   'darkolivegreen3', 'indianred1')
 names(strain_colors) <- c('WT', 'chrIV-I(cen1∆)', 'chrIV(cen4∆)-I',
                           'chrIX(cen9∆)-III-I(cen1∆)',
                           'chrIX-III(cen3∆)-I(cen1∆)')
@@ -147,7 +148,7 @@ ggplot(plot_data,
 
 
 #------------------------------------------------------------------------------#
-#                             Supplementary figure                             #
+#                            Supplementary figure 1                            #
 #                                   Panel B                                    #
 #------------------------------------------------------------------------------#
 
@@ -221,7 +222,8 @@ get_signal_to_plot <- function(gr, sample_name, chr_name, window=100) {
   positions <- bins@ranges@start + floor(bins@ranges@width / 2)
   
   # Make data frame (convert positions to Kb; signal is the binned score)
-  data.frame(position=positions / 1000, signal=bins$binned_score, strain=sample_name)
+  data.frame(position=positions / 1000, signal=bins$binned_score,
+             strain=sample_name)
 }
 
 
@@ -323,7 +325,7 @@ plot_signal_along_chr(
 
 
 #------------------------------------------------------------------------------#
-#                             Supplementary figure                             #
+#                            Supplementary figure 1                            #
 #                                   Panel A                                    #
 #------------------------------------------------------------------------------#
 plot_signal_along_chr(
@@ -410,7 +412,8 @@ mean_score_per_peak <- function(gr, peaks, chr='chrI_S288C',
   gr_chr <- keepSeqlevels(gr, chr, pruning.mode="coarse")
   peaks_chr <- keepSeqlevels(peaks, chr, pruning.mode="coarse")
   
-  # Get signal as "RleList"; the signal is stored in the "SK1_norm_score" metadata column
+  # Get signal as "RleList"
+  # (the signal is stored in the "SK1_norm_score" metadata column)
   score <- coverage(gr_chr, weight="score")
   
   # Compute and return signal per tile
@@ -438,10 +441,12 @@ get_chr_quantiles <- function(chr='chrI_S288C', peaks) {
                           labels=1:4, include.lowest=TRUE)
   
   chr_quants$chrIV_I_CEN4_ratio <- chr_quants$chrIV_I_CEN4 / chr_quants$WT
-  chr_quants$chrIX_III_I_CEN3_ratio <- chr_quants$chrIX_III_I_CEN3 / chr_quants$WT
+  chr_quants$chrIX_III_I_CEN3_ratio <- 
+      chr_quants$chrIX_III_I_CEN3 / chr_quants$WT
   chr_quants$chrIV_I_CEN1_ratio <- chr_quants$chrIV_I_CEN1 / chr_quants$WT
   chr_quants$chrIV_I_CEN1_ratio <- chr_quants$chrIV_I_CEN1 / chr_quants$WT
-  chr_quants$chrIX_III_I_CEN9_ratio <- chr_quants$chrIX_III_I_CEN9 / chr_quants$WT
+  chr_quants$chrIX_III_I_CEN9_ratio <- 
+      chr_quants$chrIX_III_I_CEN9 / chr_quants$WT
   
   chr_quants
 }
