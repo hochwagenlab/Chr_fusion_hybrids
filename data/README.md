@@ -166,7 +166,9 @@ readr::write_tsv(SNPs, here('data/S288c_v_SK1.snp'))
 
 ## Read alignment, pileup and peak calling pipeline
 
-Ran pipeline using the `slurm` file `ChIPseq_Pipeline_hybrid_genome.sbatch`. The
+Ran pipeline using the `slurm` file `ChIPseq_Pipeline_hybrid_genome.sbatch` (see
+[ChIPseq Pipeline](data/ChIPseq_Pipeline_hybrid_genome/README.md)
+section). The
 following is the submission code template.
 
 ```bash
