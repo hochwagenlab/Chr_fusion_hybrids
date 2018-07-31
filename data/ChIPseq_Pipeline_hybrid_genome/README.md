@@ -36,8 +36,8 @@ found in the same directory; otherwise a new index is built.
 
 ### Running the pipeline:
 
-> __Note:__ This assumes access to the NYU HPC platform. any other users can use
-the pipeline code as reference to prepare their own running scripts.
+> __Note:__ This assumes access to the NYU HPC platform. External users can use
+the pipeline code as a reference to prepare their own running scripts.
 
 To prepare the pipeline for running, follow these steps:
 
