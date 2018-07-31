@@ -27,7 +27,7 @@ __`ChIPseq_Pipeline_hybrid_genome.sbatch`__
     * NOTE: CHIP and INPUT file formats can be either:
         - __`FASTQ`__ if `GENNAME` is provided; pipeline will start with `Bowtie` mapping.
         - __`SAM`__ or __`BAM`__ if `GENNAME` is not provided; pipeline will skip `Bowtie` mapping.
- 
+
 * __GENNAME__   Basename of reference genome `FASTA` file preceded by absolute path to
 directory containing the file. Must be provided if data files are in `FASTQ` format;
 must not be provided if data files are alignments (`BAM` or `SAM` format).
@@ -36,17 +36,20 @@ found in the same directory; otherwise a new index is built.
 
 ### Running the pipeline:
 
-To prepare the pipeline for running, follow the following steps:
+> __Note:__ This assumes access to the NYU HPC platform. any other users can use
+the pipeline code as reference to prepare their own running scripts.
 
-* Clone the `ChIPseq_functions` GitHub repository into your preferred location:
-    * `git clone https://github.com/hochwagenlab/ChIPseq_functions.git`
+To prepare the pipeline for running, follow these steps:
+
+* Clone the GitHub repository into your preferred location:
+    * `git clone https://github.com/hochwagenlab/Chr_fusion_hybrids.git`
 * Move into the hybrid genome pipeline folder:
-    * `cd ChIPseq_Pipeline_hybrid_genome`
+    * `cd Chr_fusion_hybrids`
 * Change the existing email address to your own in all files (replace "X" by
 your user name):
     * `find . -type f | xargs sed -i 's/lv38@nyu.edu/X@nyu.edu/g'`
 * Point to the location of the `sbatch` file when submittting the job (as in
-the examples below) 
+the examples below)
 
 #### Example job submission:
 
