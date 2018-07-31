@@ -31,7 +31,7 @@ grep SRR | xargs fasterq-dump
 ## Read quality trimming
 
 Read quality trimming was performed with
-[Trim Galore!](https://github.com/FelixKrueger/TrimGalore)) according to the
+[Trim Galore!](https://github.com/FelixKrueger/TrimGalore) according to the
 following example.
 
 
@@ -54,6 +54,10 @@ done
 
 
 ## Preparation of hybrid SK1-S288C yeast genome
+
+The hybrid genome is prepared by simply concatenating both reference genomes
+end-to-end, to generate a new combined reference genome. The following code is
+the code used for this task.
 
 ```bash
 mkdir S288C_SK1_Yue_hybrid_genome && cd S288C_SK1_Yue_hybrid_genome
